@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { forkJoin} from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { mergeMap, map, withLatestFrom } from 'rxjs/operators';
 import { WeatherService } from '../services/weather.service';
 import { loadCities, loadCitiesSuccess, setTempUnit } from './weather.actions';

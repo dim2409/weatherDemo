@@ -23,6 +23,7 @@ export const weatherReducer = createReducer(
         ...state,
         tempUnit: unit
     })),
+
     on(goToNextPage, (state) => {
         const totalPages = Math.ceil(state.cities.length / state.pageSize); // math.ceil rounds up upwards to ensure the dibision remainder gets its own page
         return {
@@ -30,10 +31,12 @@ export const weatherReducer = createReducer(
             currentPage: Math.min(state.currentPage + 1, totalPages) // returns the min of current page + 1 and total
         };
     }),
+
     on(goToPrevPage, (state) => ({
         ...state,
         currentPage: Math.max(state.currentPage - 1, 1)
     })),
+
     on(updateCityName, (state, { cityId, name }) => {
         const cities = state.cities.map(city =>
             city.id === cityId ? { ...city, name } : city
