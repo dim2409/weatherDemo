@@ -1,7 +1,7 @@
 // src/app/services/weather.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, switchMap, map, delay } from 'rxjs';
+import { Observable, of, switchMap, map, delay, mergeMap } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { } from '../../assets/mock/mock-points.json';
 
@@ -17,7 +17,7 @@ export class WeatherService {
       const mockPointsUrl = '../../assets/mock/mock-points.json';
       
       return this.http.get<any>(mockPointsUrl).pipe(
-        switchMap(pointsResponse => {
+        mergeMap(pointsResponse => {
           const baseForecastPath = pointsResponse.properties?.forecast; // forecast path
 
           const mockForecastUrl = `${baseForecastPath.replace('.json', '')}-${unit}.json`; // adjust based on selected unit
@@ -28,12 +28,10 @@ export class WeatherService {
       );
     } else {
       //real api
-      console.log(`%cUsing LIVE API for ${lat},${lon} with unit: ${unit}`, "background: lightblue; color: black; padding: 2px 5px;");
       const url = `https://api.weather.gov/points/${lat},${lon}`;
       return this.http.get<any>(url).pipe(
-        switchMap(res => {
+        mergeMap(res => {
           const forecastUrl = res.properties?.forecast;
-          if (!forecastUrl) throw new Error('No forecast URL found for this location');
           return this.http.get<any>(forecastUrl + (unit === 'si' ? '?units=si' : ''));
         }),
         map(res => res.properties?.periods ?? [])
