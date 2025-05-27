@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, mergeMap } from 'rxjs';
 import { AppSettings } from '../app.settings';
-import { } from '../../assets/mock/mock-points.json';
 
 @Injectable({
   providedIn: 'root'
