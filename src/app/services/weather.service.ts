@@ -1,7 +1,7 @@
 // src/app/services/weather.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, switchMap, map, delay, mergeMap } from 'rxjs';
+import { Observable, map, mergeMap } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { } from '../../assets/mock/mock-points.json';
 
@@ -15,14 +15,14 @@ export class WeatherService {
     if (AppSettings.mockServer) {
       //mock
       const mockPointsUrl = '../../assets/mock/mock-points.json';
-      
+
       return this.http.get<any>(mockPointsUrl).pipe(
         mergeMap(pointsResponse => {
           const baseForecastPath = pointsResponse.properties?.forecast; // forecast path
 
           const mockForecastUrl = `${baseForecastPath.replace('.json', '')}-${unit}.json`; // adjust based on selected unit
-          
-          return this.http.get<any>(mockForecastUrl).pipe();
+
+          return this.http.get<any>(mockForecastUrl);
         }),
         map(forecastResponse => forecastResponse.properties?.periods ?? [])
       );
