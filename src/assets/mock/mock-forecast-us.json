@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "units": "us",
+    "periods": [
+      {
+        "number": 1,
+        "name": "This Afternoon",
+        "temperature": 50,
+        "temperatureUnit": "F",
+        "shortForecast": "Cloudy"
+      },
+      {
+        "number": 2,
+        "name": "Tonight",
+        "temperature": 60,
+        "temperatureUnit": "F",
+        "shortForecast": "Rainy"
+      },
+      {
+        "number": 3,
+        "name": "Tomorrow",
+        "temperature": 70,
+        "temperatureUnit": "F",
+        "shortForecast": "Sunny"
+      }
+    ]
+  }
+}

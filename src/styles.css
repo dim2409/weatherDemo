@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('./assets/fonts/Montserrat.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'limelight';
+  src: url('./assets/fonts/Limelight.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+  
+body {
+  font-family: 'montserrat', sans-serif;
+}

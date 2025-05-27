@@ -13,7 +13,12 @@ module.exports = {
     './public/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ['montserrat', 'sans-serif'],
+        limelight: ['limelight', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }

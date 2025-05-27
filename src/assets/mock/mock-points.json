@@ -1,0 +1,5 @@
+{
+  "properties": {
+    "forecast": "assets/mock/mock-forecast.json"
+  }
+}

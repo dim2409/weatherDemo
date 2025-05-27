@@ -1,0 +1,32 @@
+<nav class="flex items-center justify-between bg-[#364fc7] text-white px-20 py-4 mb-10">
+    <div class="inline-flex items-center cursor-pointer">
+        <a routerLink="/" class="font-light text-2xl font-limelight hover:text-gray-200 transition-colors">
+            Mini Weather
+        </a>
+        <a routerLink="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+                stroke="#ffa94d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-thermometer-sun-icon lucide-thermometer-sun ml-2">
+                <path d="M12 9a4 4 0 0 0-2 7.5" />
+                <path d="M12 3v2" />
+                <path d="m6.6 18.4-1.4 1.4" />
+                <path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
+                <path d="M4 13H2" />
+                <path d="M6.34 7.34 4.93 5.93" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- temp unit switch -->
+    <div class="flex items-center gap-2">
+        <div class="relative flex items-center w-20 h-8 rounded-full bg-[#ffa94d] cursor-pointer select-none"
+            (click)="toggleTempUnit()">
+            <div class="absolute top-1 left-1 w-10 h-6 rounded-full bg-white shadow-md transition-transform duration-200"
+                [ngStyle]="{ transform: tempUnit === 'si' ? 'translateX(0)' : 'translateX(2rem)' }"></div>
+            <span class="flex-1 text-center z-10 font-bold transition-colors"
+                [ngClass]="{ 'text-blue-900': tempUnit === 'si', 'text-white': tempUnit !== 'si' }">°C</span>
+            <span class="flex-1 text-center z-10 font-bold transition-colors"
+                [ngClass]="{ 'text-blue-900': tempUnit === 'us', 'text-white': tempUnit !== 'us' }">°F</span>
+        </div>
+    </div>
+</nav>
