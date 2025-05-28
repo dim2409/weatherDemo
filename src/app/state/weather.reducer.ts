@@ -16,6 +16,7 @@ export const weatherReducer = createReducer(
     initialState,
     on(loadCities, (state, { cities }) => ({
         ...state,
+        loading: true,
         cities
     })),
 
@@ -46,11 +47,8 @@ export const weatherReducer = createReducer(
 
     on(loadCitiesSuccess, (state, { cities }) => ({
         ...state,
+        loading: false,
         cities
     })),
-
-    on(loadCities, (state) => ({ ...state, loading: true })), // set loading to true when loading cities
-
-    on(loadCitiesSuccess, (state) => ({ ...state, loading: false })), // set loading to false when cities are loaded successfully
 
 );
