@@ -1,4 +1,4 @@
-import { createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { WeatherState } from './weather.state';
 import { loadCities, setTempUnit, updateCityName, goToNextPage, goToPrevPage, loadCitiesSuccess } from './weather.actions';
 
